@@ -1,19 +1,16 @@
-
+import Footer from "./components/footer/Footer";
+import Navbar from "./components/navbar/Navbar";
 
 function App() {
   return (
-    <div className="App">
+    <div >
       <h1>
-        Zohreh App
+        <Navbar />
+        <Footer />
       </h1>
     </div>
   );
 }
-function Navbar(){
-  return(
-    <div>
-      <h1>Test</h1>
-    </div>
-  )
-}
+
+
 export default App;
