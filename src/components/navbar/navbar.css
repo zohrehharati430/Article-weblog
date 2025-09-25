@@ -1,0 +1,9 @@
+.header{
+    background-color: rgb(254, 4, 4);
+}
+.header .header-title{
+    text-align: center;
+}
+.header .header-title:hover{
+    color: #fff;
+}
