@@ -1,8 +1,8 @@
-import "./navbar.css"
+import styled from './navbar.module.css'
 function Navbar(){
   return(
-    <div className="header">
-      <h1 className="header-title">
+    <div  className={styled.header}>
+      <h1 >
         Header
       </h1>
     </div>
