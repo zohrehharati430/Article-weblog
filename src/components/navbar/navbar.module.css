@@ -1,11 +1,14 @@
-.header{
+.headerWrapper{
     box-shadow: 0px 3px 5px #ddd;
+}
+.header{
+    
     height: 60px;
     display:flex;
     justify-content: end;
     align-items: center;
     flex-direction: row-reverse;
-    padding: 0 40px;
+    
 }
 .header ul{
     display: flex;
