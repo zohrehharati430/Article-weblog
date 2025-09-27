@@ -4,14 +4,15 @@ import Navbar from "../../components/navbar/Navbar"
 import styled from "./home.module.css"
 import axios  from  "axios";
 import Footer from "../../components/footer/Footer"
+import { Link } from "react-router-dom";
 function Home(props){
-    const [articles,setArticles]=useState([],)
+    const [articles,setArticles]=useState([])
     useEffect(()=>{
         //API CALL
         axios.get("http://localhost:8000/articles")
         .then((result)=>{
-            console.log(result.data.data);
-            setArticles(result.data.data);
+            console.log(result.data);
+            setArticles(result.data);
         })
         .catch((error)=>{
             console.log(error);
@@ -26,7 +27,9 @@ function Home(props){
             <div className={styled.articles}>
                 {
                     articles.map((result) =>(
-                        <Article key={result.id} data={result}/>
+                        <Link to={`/article/${result.id}`}>
+                            <Article key={result.id} data={result}/>
+                        </Link>
                     ))
                 }
                 
