@@ -21,7 +21,7 @@ const [article1,setArticle]=useState([]);
    });
   },[])
   return (
-    <div>
+    <>
       <Navbar title="بلاگ" />
       <div className={styled.articleWrapper}>
         <div className="container">
@@ -36,7 +36,7 @@ const [article1,setArticle]=useState([]);
         </div>
       </div>
       <Footer />
-    </div>
+    </>
   );
 }
 export default ArticlePage;

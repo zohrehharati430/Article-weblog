@@ -4,7 +4,7 @@ import Flower from "./../../assets/images/article.jpg";
 import Footer from "../../components/footer/Footer";
 function AboutUs(){
     return(
-        <div>
+        <>
             <Navbar title="بلاگ"/>
             <div className={styled.aboutPage}>
             
@@ -20,7 +20,7 @@ function AboutUs(){
             </div>
             <Footer />
         </div>
-        </div>
+        </>
     )
 }
 export default AboutUs;
