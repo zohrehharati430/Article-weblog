@@ -3,6 +3,7 @@ import Article from "../../components/article/Article"
 import Navbar from "../../components/navbar/Navbar"
 import styled from "./home.module.css"
 import axios  from  "axios";
+import Footer from "../../components/footer/Footer"
 function Home(props){
     const [articles,setArticles]=useState([],)
     useEffect(()=>{
@@ -25,11 +26,12 @@ function Home(props){
             <div className={styled.articles}>
                 {
                     articles.map((result) =>(
-                        <Article key={result.id} article={result}/>
+                        <Article key={result.id} data={result}/>
                     ))
                 }
                 
             </div>
+           <Footer />
         </div>
        </div> 
     )
