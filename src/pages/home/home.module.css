@@ -15,3 +15,7 @@
     justify-content: space-between ;
     flex-wrap: wrap;
 }
+.aboutExit{
+    text-align: center;
+    margin: 40px;
+}

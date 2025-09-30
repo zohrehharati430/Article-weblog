@@ -1,0 +1,43 @@
+
+.login {
+  width: 400px;               /* فرم کوچیک‌تر بشه */
+  margin: 100px auto;          /* وسط افقی */
+  padding: 20px;
+  background: #ffffff;        /* پس‌زمینه سفید */
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  text-align: center;
+}
+
+.login h2 {
+  margin-bottom: 40px;
+}
+
+/* فیلدهای ورودی */
+.login input {
+  width: 100%;                /* پر کنه عرض فرم */
+  padding: 8px 10px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 14px;
+  box-sizing: border-box;     /* مطمئن بشه عرض درست حساب میشه */
+}
+
+/* دکمه */
+.login button {
+  width: 100%;
+  padding: 10px;
+  margin-top: 15px;
+  background: #007bff;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background 0.3s;
+}
+
+.login button:hover {
+  background: #0056b3;
+}

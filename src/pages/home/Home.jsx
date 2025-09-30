@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import Article from "../../components/article/Article";
 import Navbar from "../../components/navbar/Navbar";
 import styled from "./home.module.css";
@@ -6,7 +6,9 @@ import axios from "axios";
 import Footer from "../../components/footer/Footer";
 import { Link } from "react-router-dom";
 import Spinner from "../../components/spinner/Spinner";
+import { AppContext } from "../../App";
 function Home(props) {
+  const {isLogin}=useContext(AppContext)
   const [articles, setArticles] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   useEffect(() => {
@@ -34,7 +36,7 @@ function Home(props) {
         {/*shart? dorost:ghalat */}
         {isLoading ? (
           <Spinner />
-        ) : (
+        ) : isLogin ? (
           <div className={styled.articles}>
             {articles.map((result) => (
               <Link to={`/article/${result.id}`}>
@@ -42,6 +44,8 @@ function Home(props) {
               </Link>
             ))}
           </div>
+        ) : (
+          <p className={styled.aboutExit}> شما باید وارد شوید</p>
         )}
 
         <Footer />

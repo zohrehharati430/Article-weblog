@@ -4,7 +4,11 @@ import styled from "./createArticle.module.css";
 import Input from "../../components/input/Input";
 import Textarea from "../../components/textarea/Textarea";
 import axios, { Axios } from "axios";
+import { useContext } from "react";
+import { AppContext } from "../../App";
+import Footer from "../../components/footer/Footer";
 function CreateArticle() {
+  const {isLogin}=useContext(AppContext)
   const [article, setArticle] = useState({
     title: "",
     date: "",
@@ -29,58 +33,65 @@ function CreateArticle() {
   const handleCreateNewArticle = () => {
     axios.post("http://localhost:8000/articles", {
       id: 7,
-      imageUrl:article.imageUrl,
-      title:article.title ,
+      imageUrl: article.imageUrl,
+      title: article.title,
       readingTime: article.readingTime,
-      date:article.date ,
+      date: article.date,
       author: article.author,
-      content:article.message
+      content: article.message,
     });
   };
-  console.log(article);
+  console.log(isLogin);
   return (
     <>
       <Navbar title="بلاگ" />
-      <div className={styled.createArticlePage}>
-        <div className="container">
-          <h1>ساخت مقاله</h1>
-          <Input
-            label="عنوان"
-            name="title"
-            handleChange={handleChangeArticle}
-            type="text"
-          />
-          <Input
-            label="تاریخ"
-            name="date"
-            handleChange={handleChangeArticle}
-            type="text"
-          />
-          <Input
-            label="نویسنده"
-            name="author"
-            handleChange={handleChangeArticle}
-            type="text"
-          />
-          <Input
-            label="مدت زمان خواندن"
-            name="readingTime"
-            handleChange={handleChangeArticle}
-            type="text"
-          />
-          <Input
-            label="آدرس عکس"
-            name="imageUrl"
-            handleChange={handleChangeArticle}
-            type="text"
-          />
+      
+      
+      {isLogin ? (
+        <div className={styled.createArticlePage}>
+          <div className="container">
+            <h2>ساخت مقاله</h2>
+            <Input
+              label="عنوان"
+              name="title"
+              handleChange={handleChangeArticle}
+              type="text"
+            />
+            <Input
+              label="تاریخ"
+              name="date"
+              handleChange={handleChangeArticle}
+              type="text"
+            />
+            <Input
+              label="نویسنده"
+              name="author"
+              handleChange={handleChangeArticle}
+              type="text"
+            />
+            <Input
+              label="مدت زمان خواندن"
+              name="readingTime"
+              handleChange={handleChangeArticle}
+              type="text"
+            />
+            <Input
+              label="آدرس عکس"
+              name="imageUrl"
+              handleChange={handleChangeArticle}
+              type="text"
+            />
 
-          <Textarea label="متن" handleChange={handleChangeArticleMessage} />
-          <div className={styled.buttonWrapper}>
-            <button onClick={handleCreateNewArticle}>ساخت مقاله</button>
+            <Textarea label="متن" handleChange={handleChangeArticleMessage} />
+            <div className={styled.buttonWrapper}>
+              <button onClick={handleCreateNewArticle}>ساخت مقاله</button>
+            </div>
           </div>
         </div>
-      </div>
+      ) : (
+        <p className={styled.aboutExit}> شما باید وارد شوید</p>
+      )}
+      <Footer />
     </>
   );
 }

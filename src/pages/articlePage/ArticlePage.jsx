@@ -5,8 +5,10 @@ import styled from "./articlePage.module.css";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import Spinner from "../../components/spinner/Spinner";
-
+import { useContext } from "react";
+import { AppContext } from "../../App";
 function ArticlePage() {
+  const {isLogin}=useContext(AppContext)
   const [article1, setArticle] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const params = useParams();
@@ -27,6 +29,8 @@ function ArticlePage() {
   return (
     <>
       <Navbar title="بلاگ" />
+      
+      { isLogin ? (
       <div className={styled.articleWrapper}>
         <div className="container">
           {isLoading ? (
@@ -45,6 +49,9 @@ function ArticlePage() {
           )}
         </div>
       </div>
+      ):(
+        <p className={styled.aboutExit}> شما باید وارد شوید</p>
+      )}
       <Footer />
     </>
   );
