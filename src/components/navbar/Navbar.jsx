@@ -14,7 +14,7 @@ function Navbar(props) {
           <h3>{props.title} {isLogin ? <span>زهره هراتی</span> : ""}</h3>
           <ul>
             <li>
-              <Link to="/login"> خانه </Link>
+              <Link to="/login"> ورود </Link>
             </li>
             <li>
               <Link to="/"> لیست مقالات</Link>
